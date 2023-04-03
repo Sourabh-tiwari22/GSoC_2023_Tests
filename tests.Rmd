@@ -1,0 +1,40 @@
+---
+title: "Google Summer of Code 2021"
+author: "Saurabh Tiwari"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Organisation: The R Project for Statistical Computing
+
+### Project: Enhancing the Functionality and Accuracy of the VedicDateTime R Package
+
+
+#### Easy Test
+
+Code to return the name of the Shaka Samvatsar for a given Julian day number and maasa number:
+
+```{r}
+jd <- gregorian_to_jd(17, 6, 2022) #Julian day number
+# Number associated with the masa
+masa_num <- masa(gregorian_to_jd(17, 6, 2022), c(15.34, 75.13,+5.5))[1]
+get_samvatsara_name(jd, masa_num)
+
+```
+
+Code to return Ritu’s name from a Masa.
+```{r}
+masa_num <- masa(gregorian_to_jd(17, 6, 2022), c(15.34, 75.13, +5.5))[1]
+get_ritu_name(masa_num)
+
+```
+
+#### Hard Test
+
+For the final test, I created a R package called `Calculator`. It contains five functions, `add()`, `substract()`, `multiply()`, `divide()` and `modulo()` , with documentation and tests. Then, using `devtools::check()`, I checked for any errors or warning, and uploaded the source file to <https://win-builder.r-project.org/>. It passed without errors/warnings/note.
+
+The result of [\<https://win-builder.r-project.org/\>](https://win-builder.r-project.org/){.uri} is included in the github repository(`00check.log`).
+
